@@ -29,17 +29,27 @@ function signUp(){
 }
 
 function auth(){
-    let name = document.getElementById("nameField")
+    let name = document.getElementById("nameField").value
     var email = document.getElementById("emailField").value;
     var password = document.getElementById("passwordField").value;
     // console.log("Email: ", email);
     // console.log("Password: ", password);
+
+    if(email == "" || password == ""){
+        alert("Please input all information")
+        return
+    }
 
     switch(submitMode){
         case "SignUp":
             if(email in DirtyDB){
                 alert("Email already in use");
                 break
+            }
+
+            if(name == ""){
+                alert("PLease input all information")
+                return
             }
 
             DirtyDB[email] = {

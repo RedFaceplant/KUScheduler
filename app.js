@@ -1,3 +1,5 @@
+const mainHTML = document.getElementById('main')
+
 // Templates
 const dashboardTemplate = document.getElementById('DashboardTemplate').innerHTML
 const loginTemplate = document.getElementById('LoginTemplate').innerHTML

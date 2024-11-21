@@ -1,11 +1,43 @@
 const profile = document.querySelector('#profile')
-const profileMenu = document.querySelector('#profileMenu')
+const mainHTML = document.getElementById('main')
 
-profile.addEventListener('click', () => {
-    profileMenu.classList.toggle('hide')
-})
-document.addEventListener('click', e => {
-    if( !profileMenu.contains(e.target) && e.target !== profile){
-        profileMenu.classList.add('hide')
+// Templates
+const dashboardTemplate = document.getElementById('DashboardTemplate').innerHTML
+const loginTemplate = document.getElementById('LoginTemplate').innerHTML
+
+// Variables
+// let currentUser = "Jimothy"
+let currentUser = null
+
+
+// Screen rendering
+function renderDashboard(){
+    if(currentUser){
+        mainHTML.innerHTML = dashboardTemplate
+        reloadCSS()
+        return
     }
-})
+    renderLogin()
+
+}
+
+function renderLogin(){
+    mainHTML.innerHTML = loginTemplate
+    submitMode = "SignUp"
+    reloadCSS()
+}
+
+function reloadCSS(){
+    let links = document.getElementsByTagName('link');
+      for (let i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('rel') == 'stylesheet') {
+        let href = links[i].getAttribute('href').split('?')[0];
+              let newHref = href + '?version=' 
+                           + new Date().getMilliseconds();
+              console.log(newHref)
+              links[i].setAttribute('href', newHref);
+          }
+      }
+}
+
+renderDashboard()

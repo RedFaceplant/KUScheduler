@@ -1,0 +1,112 @@
+.landingpage
+{
+    position:absolute;
+    background-color:#ffffff;
+    height:1080px;
+    width:1920px;
+    padding:0px;
+}
+.header
+{
+    width:1931px;
+    height:110px;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.rectangle1
+{
+    background-color:#0c5ca9;
+    height:71px;
+    width:1920px;
+}
+.ketteringuniversity
+{
+    color:#ffd205;
+    text-align:left;
+    vertical-align:text-top;
+    font-size:48px;
+    font-family:Berkeley;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    left:1471px;
+    top: 0px;
+    position:absolute;
+    width:460px;
+}
+.profile
+{
+    background-color:#d9d9d9;
+    height:46px;
+    width:46px;
+    top:12px;
+    left:18px;
+    position:absolute;
+    border-radius:50%;
+    border: none !important;
+
+}
+.rectangle2
+{
+    background-color:#27aae2;
+    height:39px;
+    width:1920px;
+    top:71px;
+    left:0px;
+    position:absolute;
+}
+
+.profileMenu
+{
+    position:absolute;
+    background-color:#ececec;
+    height:364px;
+    width:198px;
+    border-radius:0px 0px 12px 0px;
+    padding:0px;
+}
+.hide{
+    display: none;
+}
+.logout
+{
+    color:#0c5ca9;
+    text-align:left;
+    vertical-align:text-top;
+    font-size:16px;
+    font-family:Berkeley;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    left:21px;
+    top:95px;
+    position:absolute;
+    width:71px;
+}
+.Settings
+{
+    color:#0c5ca9;
+    text-align:left;
+    vertical-align:text-top;
+    font-size:16px;
+    font-family:Berkeley;
+    left:21px;
+    top:72px;
+    width:71px;
+    height:23px;
+    position:absolute;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+}
+.profile2
+{
+    background-color:#d9d9d9;
+    height:46px;
+    width:46px;
+    top:12px;
+    left:18px;
+    position:absolute;
+    border-radius:50%;
+}

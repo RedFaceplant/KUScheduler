@@ -1,3 +1,6 @@
+// const profile = document.querySelector('#profile')
+// const mainHTML = document.getElementById('main')
+
 // User bubble show/hide system:
 // profile.addEventListener('click', () => {
 //     profileMenu.classList.toggle('hide')

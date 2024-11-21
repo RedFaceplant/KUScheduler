@@ -10,7 +10,7 @@ function signIn(){
 
     nameField.style.maxHeight = "0";
     title.innerHTML = "Sign In";
-    signupBtn.classList.add("disable");
+    // signupBtn.classList.add("disable");
     signinBtn.classList.remove("disable");
 }
 
@@ -24,7 +24,7 @@ function signUp(){
 
     nameField.style.maxHeight = "60px";
     title.innerHTML = "Sign Up";
-    signupBtn.classList.remove("disable");
+    // signupBtn.classList.remove("disable");
     signinBtn.classList.add("disable");
 }
 

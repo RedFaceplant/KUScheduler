@@ -30,7 +30,7 @@ function signUp(){
 
 function auth(){
     let name = document.getElementById("nameField").value
-    var email = document.getElementById("emailField").value;
+    var email = document.getElementById("emailField").value.toLowerCase();
     var password = document.getElementById("passwordField").value;
     // console.log("Email: ", email);
     // console.log("Password: ", password);
@@ -42,7 +42,7 @@ function auth(){
 
     switch(submitMode){
         case "SignUp":
-            if(email in DirtyDB){
+            if(email in DirtyDB.users){
                 alert("Email already in use");
                 break
             }
@@ -52,24 +52,20 @@ function auth(){
                 return
             }
 
-            DirtyDB[email] = {
+            DirtyDB.users[email] = {
                 "name": name,
                 "password": password
             }
 
-            currentUser = {
-                'Name': DirtyDB[email].name,
-            }
+            currentUser = email,
             renderDashboard()
             alert("Login Successfully");
 
             break
         case "SignIn":
-            if(email in DirtyDB){
-                if(password === DirtyDB[email].password){
-                    currentUser = {
-                        'Name': DirtyDB[email].name,
-                    }
+            if(email in DirtyDB.users){
+                if(password === DirtyDB.users[email].password){
+                    currentUser = email
                     renderDashboard()
                     alert("Login Successfully");
                 }

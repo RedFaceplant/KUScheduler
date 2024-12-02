@@ -112,6 +112,13 @@
     border-radius:50%;
 }
 
+.teamList{
+    align-self: center;
+    margin-top: 10%;
+    width: 30%;
+    margin-left: auto;
+}
+
 /* Login screen */
 *{
     margin: 0;
@@ -208,4 +215,17 @@ form p a{
 .btn-field button.disable{
     background: #eaeaea;
     color: #555
+}
+
+/* Team Screen */
+.middleCol{
+    align-self: center;
+    margin-top: 10%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.teamName{
+    text-align: center;
+    text-transform: capitalize;
 }

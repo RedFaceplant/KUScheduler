@@ -8,8 +8,8 @@ const teamTemplate = document.getElementById('TeamTemplate').innerHTML
 // Variables
 
 // currentUser should be the EMAIL of the account
-let currentUser = "janedoe@gmail.com"
-// let currentUser = null
+// let currentUser = "janedoe@gmail.com"
+let currentUser = null
 
 
 renderDashboard()

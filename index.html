@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dbcc2cf52e.js" crossorigin="anonymous"></script>
     <title>KU Scheduler</title>
 </head>
 <body>
@@ -44,6 +44,14 @@
             </ul>
             <br>
             <a href="#" onclick="renderCreateTeam()">Create New Team</a>
+        </div>
+
+        <div class="teamList">
+            <b>Your invites:</b> 
+            <ul id="inviteList">
+                <!--<li><a href="#" onclick=" acceptInvite('team'); ">Test</a></li>-->
+                <li>You have no invites!</li>
+            </ul>
         </div>
     </template>
 
@@ -108,13 +116,63 @@
             <h1 class="teamName" id="teamName">Team Page Test</h1>
             <div class="btn-field" id="adminField">
                 <button type="button" id="createShiftBtn" onclick=createShift()>Create Shift</button>
-                <button type="button" id="inviteBtn" onclick=inviteMember()>Invite Member</button>
+                <button type="button" id="inviteBtn" onclick=renderInviteMember()>Invite Member</button>
                 <button type="button" id="editTeamBtn" onclick=editTeam()>Edit Team</button>
             </div>
         </div>
-
-
     </template>
+
+    <!-- Create Team -->
+    <template id="CreateTeamTemplate">
+        <div class="container">
+            <div class = "form-box">
+                <h1 id="title" > Create Team </h1>
+                <form>
+                    <div class="input-group">
+                        <div class="input-field">
+                            <!--<i class="fa-solid fa-user"></i>-->
+                            <input id="teamName" type="text" placeholder="Team Name" required>
+                        </div>
+                        <!--
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" placeholder="email" id="emailField">
+                        </div>
+        
+                        <div class="input-field" >
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="password" id="passwordField">
+                        </div>
+                        -->
+                    </div>
+                    <div class="btn-field">
+                        <button type="button" id="submitBtn" onclick=createTeam()>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <!-- Invite Member -->
+    <template id="InviteMemberTemplate">
+        <div class="container">
+            <div class = "form-box">
+                <h1 id="title" > Invite Member</h1>
+                <form>
+                    <div class="input-group">
+                        <div class="input-field">
+                            <!--<i class="fa-solid fa-user"></i>-->
+                            <input id="recipientEmail" type="text" placeholder="Members's Email" required>
+                        </div>
+                    </div>
+                    <div class="btn-field">
+                        <button type="button" id="submitBtn" onclick=inviteMember()>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
 
 </body>
 <script src="dirtyDB.js"></script>

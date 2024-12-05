@@ -4,30 +4,45 @@ const mainHTML = document.getElementById('main')
 const dashboardTemplate = document.getElementById('DashboardTemplate').innerHTML
 const loginTemplate = document.getElementById('LoginTemplate').innerHTML
 const teamTemplate = document.getElementById('TeamTemplate').innerHTML
+const createTeamTemplate = document.getElementById('CreateTeamTemplate').innerHTML
+const inviteMemberTemplate = document.getElementById('InviteMemberTemplate').innerHTML
 
 // Variables
 
 // currentUser should be the EMAIL of the account
-// let currentUser = "janedoe@gmail.com"
+// let currentUser = "thepyro@gmail.com"
 let currentUser = null
 
+
+let currentTeam = null
 
 renderDashboard()
 
 // Screen rendering
 function renderDashboard(){
+    currentTeam = null
     if(currentUser){
         // Init Dashboard
         mainHTML.innerHTML = dashboardTemplate
         reloadCSS()
 
+        // Render team list
         const teamList = document.getElementById('teamList')
         teamList.innerHTML = ""
-
         for(teami in DirtyDB.users[currentUser].teams){
             const team = DirtyDB.users[currentUser].teams[teami]
-            // console.log(team)
             teamList.innerHTML += `<li><a href="#" onclick=" renderTeam('${team}');">${team}</a></li>`
+        }
+
+        // Render invite list
+        const inviteList = document.getElementById('inviteList')
+        inviteList.innerHTML = "<li>You have no invites!</li>"
+        if(DirtyDB.users[currentUser].invites.length > 0){
+            inviteList.innerHTML = ""
+            for(invitei in DirtyDB.users[currentUser].invites){
+                const invite = DirtyDB.users[currentUser].invites[invitei]
+                inviteList.innerHTML += `<li><a href="#" onclick=" acceptInvite('${invite}'); ">You were invited to '${invite}'</a></li>`
+            }
         }
 
         return
@@ -56,7 +71,7 @@ function reloadCSS(){
 }
 
 function renderTeam(team){
-    // console.log(team)
+    currentTeam = team
     if(team in DirtyDB.teams){
         // Init Team Page
         mainHTML.innerHTML = teamTemplate
@@ -83,5 +98,21 @@ function renderTeam(team){
 }
 
 function renderCreateTeam(){
+    mainHTML.innerHTML = createTeamTemplate
+    reloadCSS()
+}
 
+function renderInviteMember(){
+    mainHTML.innerHTML = inviteMemberTemplate
+    reloadCSS()
+}
+
+function acceptInvite(teamName){
+    let TheUser = DirtyDB.users[currentUser]
+    TheUser.invites = TheUser.invites.filter(function(item) {
+        return item !== teamName
+    })
+    TheUser.teams.push(teamName)
+
+    renderDashboard()
 }

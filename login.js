@@ -48,7 +48,7 @@ function auth(){
             }
 
             if(name == ""){
-                alert("PLease input all information")
+                alert("Please input all information")
                 return
             }
 

@@ -1,115 +1,192 @@
 /* dashboard */
-.landingpage
-{
-    position:absolute;
-    background-color:#ffffff;
-    height:1080px;
-    width:1920px;
-    padding:0px;
+:before
+:after{
+    box-sizing:border-box;
 }
-.header
-{
-    width:1931px;
-    height:110px;
-    position:absolute;
-    top:0px;
-    left:0px;
+
+*{margin:0;padding:0}
+
+#_{
+    background-color:#fff;
+    min-height:100vh;
+    display:grid;
 }
-.rectangle1
-{
+#Landing_Page{
+    grid-row-gap:10px;
+    background-color:#fff;
+    flex-flow:column;
+    justify-content:flex-start;
+    align-items:start;
+    width:100%;
+    min-width:320px;
+    max-width:3840px;
+    margin:0 auto 0 0;
+    padding:0;
+    display:flex;
+    position:relative;
+    overflow:hidden;
+}
+#Header{
+    grid-row-gap:0px;
+    --f2w-order:0;
+    flex-flow:column;
+    flex-grow:1;
+    flex-basis:0;
+    justify-content:flex-start;
+    align-items:start;
+    width:100%;
+    min-width:320px;
+    max-width:3840px;
+    height:100%;
+    margin:0;
+    padding:0;
+    display:flex;
+    position:relative;
+}
+#Rectangle_1{
+    filter:drop-shadow(0 4px 4px #00000040);
+    --f2w-order:0;
     background-color:#0c5ca9;
-    height:71px;
-    width:1920px;
+    flex-shrink:0;
+    width:100%;
+    height:72.9px;
+    margin:0;
+    position:relative;
 }
-.ketteringuniversity
-{
-    color:#ffd205;
-    text-align:left;
-    vertical-align:text-top;
-    font-size:48px;
-    font-family:Berkeley;
-    line-height:auto;
-    border-style:hidden;
-    outline:none;
-    left:1471px;
-    top: 0px;
-    position:absolute;
-    width:460px;
-}
-.profile
-{
-    background-color:#d9d9d9;
-    height:46px;
-    width:46px;
-    top:12px;
-    left:18px;
-    position:absolute;
-    border-radius:50%;
-    border: none !important;
-
-}
-.rectangle2
-{
+#Rectangle_2{
+    --f2w-order:1;
     background-color:#27aae2;
-    height:39px;
-    width:1920px;
-    top:71px;
-    left:0px;
+    flex-shrink:0;
+    width:100%;
+    height:40.1px;
+    margin:0;
+    position:relative;
+}
+#LogoBox{
+    text-align:right;
+    overflow-wrap:break-word;
+    color:#ffd205;
+    --f2w-order:2;
+    -webkit-background-clip:text;
+    background-clip:text;
+    width: 95%;
+    font-family:Berkeley;
+    font-size:48px;
+    font-weight:900;
+    display:inline;
     position:absolute;
+    top:8px;
+    /* left:calc(100% - 449px); */
+}
+#KULogo{
+    overflow-wrap:break-word;
+    color:#ffd205;
+    -webkit-background-clip:text;
+    background-clip:text;
+    font-family:Berkeley;
+    font-size:48px;
+    font-weight:900;
+}
+#Profile{
+    aspect-ratio:.97;
+    --f2w-order:3;
+    background-color:#d9d9d9;
+    border-radius:50%;
+    width:46px;
+    height:47.3px;
+    position:absolute;
+    top:12.3px;
+    left:18px;
+    border: none !important;
 }
 
-.profileMenu
-{
+#profileMenu>*{
+    z-index:9999;
+    box-sizing:content-box;
     position:absolute;
-    background-color:#ececec;
-    height:364px;
-    width:198px;
-    border-radius:0px 0px 12px 0px;
-    padding:0px;
+    top:0;
+    left:0
 }
+
+#Profile_0{
+    background-color:#ececec;
+    border-radius:0 0 12px;
+    width:198px;
+    min-width:198px;
+    max-width:198px;
+    height:364px;
+    min-height:364px;
+    max-height:364px;
+    overflow:hidden;
+    border: none !important;
+}
+
+#Profile_1{
+    aspect-ratio:1;
+    --f2w-order:0;
+    background-color:#d9d9d9;
+    border-radius:50%;
+    width:46px;
+    height:46px;
+    position:absolute;
+    top:12px;
+    left:18px
+}
+
 .hide{
     display: none;
 }
-.logout
-{
-    color:#0c5ca9;
+
+#_50_36{
     text-align:left;
-    vertical-align:text-top;
-    font-size:16px;
-    font-family:Berkeley;
-    line-height:auto;
-    border-style:hidden;
-    outline:none;
-    left:21px;
-    top:95px;
-    position:absolute;
-    width:71px;
-}
-.Settings
-{
+    overflow-wrap:break-word;
     color:#0c5ca9;
-    text-align:left;
-    vertical-align:text-top;
-    font-size:16px;
+    --f2w-order:1;
+    -webkit-background-clip:text;
+    background-clip:text;
+    width:162px;
+    height:18px;
     font-family:Berkeley;
-    left:21px;
-    top:72px;
-    width:71px;
-    height:23px;
+    font-size:16px;
+    font-weight:900;
+    display:inline;
     position:absolute;
-    line-height:auto;
-    border-style:hidden;
-    outline:none;
+    top:68px;
+    left:18px
 }
-.profile2
-{
-    background-color:#d9d9d9;
-    height:46px;
-    width:46px;
-    top:12px;
-    left:18px;
+#Dashboard{
+    overflow-wrap:break-word;
+    color:#0c5ca9;
+    -webkit-background-clip:text;
+    background-clip:text;
+    font-family:Berkeley;
+    font-size:16px;
+    font-weight:900
+}
+#_50_37{
+    text-align:left;
+    overflow-wrap:break-word;
+    color:#0c5ca9;
+    --f2w-order:2;
+    -webkit-background-clip:text;
+    background-clip:text;
+    width:162px;
+    height:18px;
+    font-family:Berkeley;
+    font-size:16px;
+    font-weight:900;
+    display:inline;
     position:absolute;
-    border-radius:50%;
+    top:96px;left:18px
+}
+#LogOut{
+    overflow-wrap:break-word;
+    color:#0c5ca9;
+    -webkit-background-clip:text;
+    background-clip:text;
+    font-family:Berkeley;
+    font-size:16px;
+    font-weight:900
 }
 
 .teamList{

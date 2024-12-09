@@ -23,10 +23,19 @@ let DirtyDB = {
 
     "teams": {
         "builders leauge united": {
-            "admins": ["thepyro@gmail.com"]
+            "admins": ["thepyro@gmail.com"],
+            "shifts": [0],
         },
         "reliable excavation and demolition": {
-            "admins": ["janedoe@gmail.com"]
+            "admins": ["janedoe@gmail.com"],
+            "shifts": [],
         },
+    },
+
+    "shifts": {
+        0: {
+            "startTime": 1733766745,
+            "endTime": 1733766757,
+        }
     },
 }

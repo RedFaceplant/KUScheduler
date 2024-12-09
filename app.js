@@ -6,6 +6,7 @@ const loginTemplate = document.getElementById('LoginTemplate').innerHTML
 const teamTemplate = document.getElementById('TeamTemplate').innerHTML
 const createTeamTemplate = document.getElementById('CreateTeamTemplate').innerHTML
 const inviteMemberTemplate = document.getElementById('InviteMemberTemplate').innerHTML
+const createShiftTemplate = document.getElementById('CreateShiftTemplate').innerHTML
 
 // Variables
 
@@ -118,8 +119,12 @@ function acceptInvite(teamName){
     renderDashboard()
 }
 
-
 function logOut(){
     currentUser = null
     renderLogin()
+}
+
+function renderCreateShift(){
+    mainHTML.innerHTML = createShiftTemplate
+    reloadCSS()
 }

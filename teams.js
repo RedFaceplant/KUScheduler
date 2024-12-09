@@ -1,11 +1,3 @@
-function createShift(){
-
-}
-
-function editTeam(){
-
-}
-
 
 // Used to invite a member to a team. Only accessible to admins
 function inviteMember(){
@@ -49,4 +41,43 @@ function createTeam(){
 
     renderDashboard()
     alert("Team Created Successfully");
+}
+
+// Used to create a new shift. Only avalible to admins
+function createShift(){
+    let startTime = document.getElementById("startingTime").value
+    let endTime = document.getElementById("endingTime").value
+
+    if(startTime == "" || endTime == "" ){
+        alert("Please input all information")
+        return
+    }
+
+    let newID = getRandomID() + 0
+    while(newID in DirtyDB.teams){
+        newID = getRandomID() + 0
+    }
+
+    DirtyDB.shifts[newID] = {
+        "startTime": startTime,
+        "endTime": endTime,
+    }
+
+    DirtyDB.teams[currentTeam].shifts.push(newID)
+
+    renderTeam(currentTeam)
+    alert("Shift Created Successfully");
+    console.log(DirtyDB.shifts)
+}
+
+
+// Returns a random string of numbers of sufficent length to be used as an ID system for now
+function getRandomID() {
+    return Math.floor(Math.random() * 1000000)
+}
+
+
+// Used to edit the values of a team
+function editTeam(){
+
 }

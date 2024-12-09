@@ -9,6 +9,7 @@
 </head>
 <body>
     <!-- True landing / Error Screen -->
+    <!-- Also will be shown to users that don't have javascript enabled, hence the message -->
     <div id="main">
         Please enable Javascript
     </div>
@@ -89,32 +90,31 @@
 
     <!-- Team Screen -->
     <template id="TeamTemplate">
-        <div id='landingpage' class='landingpage'>
-            <div id='header' class='header'>
-            <div id='rectangle1' class='rectangle1'>
+        <div id="Landing_Page">
+            <div id="Header">
+              <div id="Rectangle_1" class="pointer-events-none">
+              </div>
+              <div id="Rectangle_2" class="pointer-events-none">
+              </div>
+              <span id="LogoBox" class="pointer-events-none"><span id="KULogo">Kettering University</span></span>
+              <button id="Profile" class = "Profile">
+              </div>
             </div>
-            <div id='ketteringuniversity' class='ketteringuniversity'>
-                Kettering University
-           </div>
-            <button id="profile" class = "profile" onclick=showProfile()></button>
-            <div id='rectangle2' class='rectangle2'>
+          </div>
+      
+          <div id="profileMenu" class="profileMenu hide">
+              <div id="Profile_0">
+                <div id="Profile_1" class="pointer-events-none">
+                </div>
+                <span id="_50_36" class="pointer-events-none"><button id="Dashboard" onclick="renderDashboard()">Dashboard</button></span>
+                <span id="_50_37" class="pointer-events-none"><button id="LogOut" onclick="logOut()">Log Out</button></span>
+              </div>
             </div>
-        </div>
-        <div id="profileMenu" class="profileMenu">
-            <a href ="#" class='logout' onclick=logOut()>
-                <p>Log Out</p>
-            </a>
-            <a href ="#" class='Settings' onclick=renderDashboard()>
-                <p>Dashboard</p>
-            </a>
-            <div id='profile2' class='profile2'>
-            </div>
-        </div>
 
         <div class="middleCol">
             <h1 class="teamName" id="teamName">Team Page Test</h1>
             <div class="btn-field" id="adminField">
-                <button type="button" id="createShiftBtn" onclick=createShift()>Create Shift</button>
+                <button type="button" id="createShiftBtn" onclick=renderCreateShift()>Create Shift</button>
                 <button type="button" id="inviteBtn" onclick=renderInviteMember()>Invite Member</button>
                 <button type="button" id="editTeamBtn" onclick=editTeam()>Edit Team</button>
             </div>
@@ -132,17 +132,6 @@
                             <!--<i class="fa-solid fa-user"></i>-->
                             <input id="teamName" type="text" placeholder="Team Name" required>
                         </div>
-                        <!--
-                        <div class="input-field">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" placeholder="email" id="emailField">
-                        </div>
-        
-                        <div class="input-field" >
-                            <i class="fa-solid fa-lock"></i>
-                            <input type="password" placeholder="password" id="passwordField">
-                        </div>
-                        -->
                     </div>
                     <div class="btn-field">
                         <button type="button" id="submitBtn" onclick=createTeam()>Submit</button>
@@ -160,12 +149,36 @@
                 <form>
                     <div class="input-group">
                         <div class="input-field">
-                            <!--<i class="fa-solid fa-user"></i>-->
+                            <i class="fa-solid fa-user"></i>
                             <input id="recipientEmail" type="text" placeholder="Members's Email" required>
                         </div>
                     </div>
                     <div class="btn-field">
                         <button type="button" id="submitBtn" onclick=inviteMember()>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <!-- Create Shift -->
+    <template id="CreateShiftTemplate">
+        <div class="container">
+            <div class = "form-box">
+                <h1 id="title" > Create Shift </h1>
+                <form>
+                    <div class="input-group">
+                        <div class="input-field">
+                            <i class="fa-solid fa-clock"></i>
+                            <input id="startingTime" type="text" placeholder="Starting Time" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fa-solid fa-clock"></i>
+                            <input id="endingTime" type="text" placeholder="Ending Time" required>
+                        </div>
+                    </div>
+                    <div class="btn-field">
+                        <button type="button" id="submitBtn" onclick=createShift()>Submit</button>
                     </div>
                 </form>
             </div>

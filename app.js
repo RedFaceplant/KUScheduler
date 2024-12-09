@@ -24,6 +24,7 @@ function renderDashboard(){
     if(currentUser){
         // Init Dashboard
         mainHTML.innerHTML = dashboardTemplate
+        dashboardInit()
         reloadCSS()
 
         // Render team list
@@ -115,4 +116,10 @@ function acceptInvite(teamName){
     TheUser.teams.push(teamName)
 
     renderDashboard()
+}
+
+
+function logOut(){
+    currentUser = null
+    renderLogin()
 }

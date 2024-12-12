@@ -11,7 +11,7 @@ const createShiftTemplate = document.getElementById('CreateShiftTemplate').inner
 // Variables
 
 // currentUser should be the EMAIL of the account
-// let currentUser = "thepyro@gmail.com"
+// let currentUser = "admin@gmail.com"
 let currentUser = null
 
 
@@ -27,6 +27,18 @@ function renderDashboard(){
         mainHTML.innerHTML = dashboardTemplate
         dashboardInit()
         reloadCSS()
+
+        // Render Shifts as a list
+        const shiftList = document.getElementById('shiftList')
+        shiftList.innerHTML = "<li>You have no upcoming shifts!</li>"
+        if(DirtyDB.users[currentUser].shifts.length > 0){
+            shiftList.innerHTML = ""
+            for(shifti in DirtyDB.users[currentUser].shifts){
+                const shiftID = DirtyDB.users[currentUser].shifts[shifti]
+                const {name, startTime, endTime, date} = DirtyDB.shifts[shiftID]
+                shiftList.innerHTML += `<li>${name}. ${date}, ${startTime} to ${endTime}</li>`
+            }
+        }
 
         // Render team list
         const teamList = document.getElementById('teamList')
@@ -66,7 +78,6 @@ function reloadCSS(){
         let href = links[i].getAttribute('href').split('?')[0];
               let newHref = href + '?version=' 
                            + new Date().getMilliseconds();
-              console.log(newHref)
               links[i].setAttribute('href', newHref);
           }
       }
@@ -81,17 +92,29 @@ function renderTeam(team){
 
         const adminField = document.getElementById('adminField')
 
-        console.log(currentUser)
-        console.log(DirtyDB.teams[team].admins)
-        console.log((DirtyDB.teams[team].admins.includes(currentUser)))
-
         if(!(DirtyDB.teams[team].admins.includes(currentUser))){
             adminField.innerHTML = ""
         }
 
-
         const teamHeader = document.getElementById('teamName')
         teamHeader.innerHTML = `${team}`
+
+        const shiftList = document.getElementById('teamShiftList')
+        shiftList.innerHTML = "<li>This team has no upcoming shifts!</li>"
+        if(DirtyDB.teams[currentTeam].shifts.length > 0){
+            shiftList.innerHTML = ""
+            for(shifti in DirtyDB.teams[currentTeam].shifts){
+                const shiftID = DirtyDB.teams[currentTeam].shifts[shifti]
+                const {name, startTime, endTime, date, taken} = DirtyDB.shifts[shiftID]
+                if(taken){
+                    shiftList.innerHTML += `<li>${name}. ${date}, ${startTime} to ${endTime}</li>`
+                }
+                else{
+                    shiftList.innerHTML += `<li><a href="#" onclick=" acceptShift('${shiftID}'); ">${name}. ${date}, ${startTime} to ${endTime}</a></li>`
+                }
+                
+            }
+        }
 
         return
     }

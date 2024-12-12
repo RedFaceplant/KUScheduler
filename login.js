@@ -15,7 +15,7 @@ function signIn(){
 }
 
 function signUp(){
-    let signupBtn = document.getElementById(".signupBtn")
+    let signupBtn = document.getElementById("signupBtn")
     let signinBtn = document.getElementById("signinBtn")
     let nameField = document.getElementById("nameField")
     let title = document.getElementById("title")
@@ -54,7 +54,10 @@ function auth(){
 
             DirtyDB.users[email] = {
                 "name": name,
-                "password": password
+                "password": hashString(password),
+                "teams": [],
+                "invites": [],
+                "shifts": [],
             }
 
             currentUser = email,
@@ -64,13 +67,14 @@ function auth(){
             break
         case "SignIn":
             if(email in DirtyDB.users){
-                if(password === DirtyDB.users[email].password){
+                if(hashString(password) == DirtyDB.users[email].password){
                     currentUser = email
                     renderDashboard()
                     alert("Login Successfully");
                 }
                 else{
                     console.log("Incorrect Password")
+                    console.log("input: ", hashString(password), ", wanted: ", DirtyDB.users[email].password)
                     alert("Inavlid Information");
                     return;
                 }
@@ -83,4 +87,18 @@ function auth(){
 
             break
     }
+}
+
+
+function hashString(input){
+    let hash = 0;
+    if (input.length == 0){
+        return hash;
+    }
+
+    for (const char of input) {
+        hash ^= char.charCodeAt(0);
+    }
+
+    return hash;
 }

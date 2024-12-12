@@ -36,23 +36,40 @@
                 <span id="_50_37" class="pointer-events-none"><button id="LogOut" onclick="logOut()">Log Out</button></span>
               </div>
             </div>
-        
-        <div class="teamList">
-            <b>Your Teams:</b> 
-            <ul id="teamList">
-                <li><a href="#" onclick=" goToTeam('team'); ">Test</a></li>
-            </ul>
-            <br>
-            <a href="#" onclick="renderCreateTeam()">Create New Team</a>
-        </div>
 
-        <div class="teamList">
-            <b>Your invites:</b> 
-            <ul id="inviteList">
-                <!--<li><a href="#" onclick=" acceptInvite('team'); ">Test</a></li>-->
-                <li>You have no invites!</li>
-            </ul>
-        </div>
+        <table class="DashboardTable">
+            <tr>
+                <td rowspan="2">
+                    <div class="shiftList">
+                        <b>Your Shifts:</b>
+                        <ul id="shiftList" class="shiftHeader">
+                            <li>Basic Shift. 12/2/24, 12:00 to 14:00</li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <div class="teamList">
+                        <b>Your Teams:</b> 
+                        <ul id="teamList">
+                            <li><a href="#" onclick=" goToTeam('team'); ">Test</a></li>
+                        </ul>
+                        <br>
+                        <a href="#" onclick="renderCreateTeam()">Create New Team</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="teamList">
+                        <b>Your invites:</b> 
+                        <ul id="inviteList">
+                            <!--<li><a href="#" onclick=" acceptInvite('team'); ">Test</a></li>-->
+                            <li>You have no invites!</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </template>
 
     <!-- Login Screen -->
@@ -119,6 +136,14 @@
                 <button type="button" id="editTeamBtn" onclick=editTeam()>Edit Team</button>
             </div>
         </div>
+
+        <br><br><br>
+        <div class="teamShiftList">
+            <b>This Team's Shifts:</b>
+            <ul id="teamShiftList" class="shiftHeader">
+                <li><a href="#" onclick=" acceptShift('shift'); ">Test Unclaimed Shift. 12/2/24, 12:00 to 14:00</a></li>
+            </ul>
+        </div>
     </template>
 
     <!-- Create Team -->
@@ -169,12 +194,20 @@
                 <form>
                     <div class="input-group">
                         <div class="input-field">
+                            <i class="fa-solid fa-signature"></i>
+                            <input id="shiftName" type="text" placeholder="Shift Name" required>
+                        </div>
+                        <div class="input-field">
                             <i class="fa-solid fa-clock"></i>
                             <input id="startingTime" type="text" placeholder="Starting Time" required>
                         </div>
                         <div class="input-field">
                             <i class="fa-solid fa-clock"></i>
                             <input id="endingTime" type="text" placeholder="Ending Time" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fa-solid fa-calendar"></i>
+                            <input id="shiftDate" type="text" placeholder="Shift Date" required>
                         </div>
                     </div>
                     <div class="btn-field">

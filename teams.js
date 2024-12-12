@@ -47,8 +47,10 @@ function createTeam(){
 function createShift(){
     let startTime = document.getElementById("startingTime").value
     let endTime = document.getElementById("endingTime").value
+    let shiftName = document.getElementById("shiftName").value
+    let shiftDate = document.getElementById("shiftDate").value
 
-    if(startTime == "" || endTime == "" ){
+    if(startTime == "" || endTime == "" || shiftName == "" || shiftDate == ""){
         alert("Please input all information")
         return
     }
@@ -59,15 +61,17 @@ function createShift(){
     }
 
     DirtyDB.shifts[newID] = {
+        "name": shiftName,
         "startTime": startTime,
         "endTime": endTime,
+        "date": shiftDate,
+        "taken": false
     }
 
     DirtyDB.teams[currentTeam].shifts.push(newID)
 
     renderTeam(currentTeam)
     alert("Shift Created Successfully");
-    console.log(DirtyDB.shifts)
 }
 
 
@@ -80,4 +84,13 @@ function getRandomID() {
 // Used to edit the values of a team
 function editTeam(){
 
+}
+
+function acceptShift(shiftID){
+    let TheUser = DirtyDB.users[currentUser]
+    TheUser.shifts.push(shiftID)
+
+    DirtyDB.shifts[shiftID].taken = true
+
+    renderDashboard()
 }

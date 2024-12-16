@@ -26,6 +26,8 @@ function renderDashboard(){
         // Init Dashboard
         mainHTML.innerHTML = dashboardTemplate
         profileMenuInit()
+        initButtons();
+        load()
         reloadCSS()
 
         // Render Shifts as a list

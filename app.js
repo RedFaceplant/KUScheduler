@@ -25,7 +25,7 @@ function renderDashboard(){
     if(currentUser){
         // Init Dashboard
         mainHTML.innerHTML = dashboardTemplate
-        dashboardInit()
+        profileMenuInit()
         reloadCSS()
 
         // Render Shifts as a list
@@ -91,6 +91,8 @@ function renderTeam(team){
         reloadCSS()
 
         const adminField = document.getElementById('adminField')
+
+        profileMenuInit()
 
         if(!(DirtyDB.teams[team].admins.includes(currentUser))){
             adminField.innerHTML = ""

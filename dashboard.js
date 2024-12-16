@@ -1,5 +1,5 @@
 
-function dashboardInit(){
+function profileMenuInit(){
 const Profile = document.querySelector('#Profile')
 const profileMenu = document.querySelector('#profileMenu')
     Profile.addEventListener('click', () => {

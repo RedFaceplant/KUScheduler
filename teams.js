@@ -15,6 +15,7 @@ function inviteMember(){
     }
 
     DirtyDB.users[recipient].invites.push(currentTeam)
+    renderTeam(currentTeam)
 }
 
 

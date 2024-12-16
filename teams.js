@@ -34,7 +34,8 @@ function createTeam(){
 
     DirtyDB.teams[name] = {
         "name": name,
-        "admins": [currentUser]
+        "admins": [currentUser],
+        "shifts": [],
     }
 
     DirtyDB.users[currentUser].teams.push(name)

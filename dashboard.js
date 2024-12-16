@@ -85,6 +85,8 @@ const calendar = document.getElementById('calendar');
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('event');
         eventDiv.innerText = eventForDay.title;
+        // eventDiv.innerText = eventForDay.starttime;
+        // eventDiv.innerText = eventForDay.endtime;
         daySquare.appendChild(eventDiv);
       }
 
@@ -102,31 +104,45 @@ const newEventModal = document.getElementById('newEventModal');
 const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
+const eventStartInput = document.getElementById('eventStartTime');
+const eventEndInput = document.getElementById('eventEndTime');
 
   eventTitleInput.classList.remove('error');
+  eventStartInput.classList.remove('error');
+  eventEndInput.classList.remove('error');
   newEventModal.style.display = 'none';
   deleteEventModal.style.display = 'none';
   backDrop.style.display = 'none';
   eventTitleInput.value = '';
+  eventStartInput.value ='';
+  eventEndInput.value ='';
   clicked = null;
   load();
 }
 
 function saveEvent() {
 const eventTitleInput = document.getElementById('eventTitleInput');
+const eventStartInput = document.getElementById('eventStartTime');
+const eventEndInput = document.getElementById('eventEndTime');
 
   if (eventTitleInput.value) {
     eventTitleInput.classList.remove('error');
+    eventStartInput.classList.remove('error');
+    eventEndInput.classList.remove('error');
 
     events.push({
       date: clicked,
       title: eventTitleInput.value,
+      starttime: eventStartInput.value,
+      endtime: eventEndInput.value,
     });
 
     localStorage.setItem('events', JSON.stringify(events));
     closeModal();
   } else {
     eventTitleInput.classList.add('error');
+    eventStartInput.classList.add('error');
+    eventEndInput.classList.add('error');
   }
 }
 
